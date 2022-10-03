@@ -11,7 +11,14 @@ fetch('http://timoth.yt/api/rampup/profiles', {
   },
 })
 .then(response => response.json())
-.then(data => profiles.value = data.PROFILES)
+//.then(data => profiles.value = data.PROFILES)
+.then(data => parseProfiles(data))
+
+function parseProfiles(rawProfilesObject) {
+  profiles.value = rawProfilesObject.PROFILES
+  profiles.value.splice(1, 1)
+  // console.log(profiles.value)
+}
 
 </script>
 
@@ -34,3 +41,6 @@ fetch('http://timoth.yt/api/rampup/profiles', {
 }
   
 </style>
+
+
+
